@@ -1,0 +1,26 @@
+[project]
+name = "temporal-python-32586-update-bug"
+version = "0.1.0"
+description = "Standalone reproduction for Temporal Python SDK USE_EXISTING start handle update bug"
+requires-python = ">=3.10"
+dependencies = ["temporalio==1.28.0"]
+
+[project.scripts]
+repro-use-existing-update-bug = "temporal_python_32586_update_bug.repro:main_sync"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[dependency-groups]
+dev = [
+    "mypy>=1.4.1,<2",
+    "ruff>=0.5.0,<0.6",
+]
+
+[tool.ruff]
+target-version = "py310"
+
+[tool.mypy]
+ignore_missing_imports = true
+check_untyped_defs = true
