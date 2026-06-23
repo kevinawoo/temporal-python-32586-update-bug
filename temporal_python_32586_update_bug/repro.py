@@ -93,6 +93,10 @@ async def run_repro(target_host: str | None, workflow_id: str) -> None:
         )
         print_handle("USE_EXISTING start", reused_start_handle)
 
+        # here's the reproduction inline to re-fetch the handle, which works
+        # it's also done on line 114 id_only_handle = ...
+        # reused_start_handle = client.get_workflow_handle(workflow_id)
+
         start_handle_error: Exception | None = None
         try:
             await update_from_handle(
